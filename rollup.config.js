@@ -21,7 +21,10 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
-			typescript(),
+			typescript({
+				typescript: require('typescript'),
+				objectHashIgnoreUnknownHack: true,
+			  }),
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
@@ -68,7 +71,10 @@ export default {
 		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
-			typescript(),
+			typescript({
+				typescript: require('typescript'),
+				objectHashIgnoreUnknownHack: true,
+			}),
 			replace({
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode)
