@@ -9,21 +9,35 @@
 </script>
 
 <script>
+  import {onMount} from 'svelte';
   import { fade } from 'svelte/transition';
+
   import { favorites } from '../store';
   const { savedById, toggleFavorite } = favorites;
 
-  export let entry;
-  export let open;
+  export let entry = {
+     word: "Word",
+    clarifyer: "clarifyer",
+    language: "language",
+    otherWords: [],
+    lastEdited: "lastEdited",
+    _id: '_id'
+  }; //WordEntry
+  export let open = false; //boolean
+  
+  let _savedById = []; //string[]
+    onMount(() => savedById.subscribe(val => _savedById = val))
 </script>
+
+
 
 <div class="container" in:fade={{duration: 170}} {open} on:click={() => open = true}>
   {#if open}
     <div class="corner-button open" 
-      saved={$savedById.includes(entry._id)}
+      saved={_savedById.includes(entry._id)}
       on:click={() => toggleFavorite(entry._id)}>&#9733;</div>
     <p class="word">{entry.word}</p>
-    <p class="clarifyer">{entry.clarifyer}</p>
+    <p class="clarifyer" {open}>{entry.clarifyer}</p>
     <div class="other-entries">
       {#each entry.otherWords as {_id, word, clarifyer}, index (_id)}
         <hr>
@@ -37,6 +51,8 @@
     <p class="clarifyer">{shrinkClarifyerText(entry.clarifyer)}</p>
   {/if}
 </div>
+
+
 
 <style>
   div {
@@ -58,7 +74,7 @@
 
   .container {
     box-sizing: border-box;
-    margin: 10px 5px 10px 5px;
+    margin: 4px 5px 4px 5px;
     padding: var(--padding);
     border: 0.5px solid var(--border-color);
     border-radius: 16px;
@@ -71,6 +87,7 @@
     width: 420px;
     cursor: auto;
     padding: 25px;
+    margin: 10px 5px 10px 5px;
   }
 
   .corner-button {
@@ -101,11 +118,15 @@
   }
 
   .clarifyer {
-    margin-top: 5px;
+    margin-top: 0px;
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 14px;
     font-style: italic;
     color: #555;
+  }
+  .clarifyer[open="true"] {
+    margin-top: 5px;
+    font-size: 16px;
   }
 
   .word.other {
@@ -117,7 +138,7 @@
 
   .clarifyer.other {
     margin-left: 20px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
 

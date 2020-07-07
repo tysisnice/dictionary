@@ -2,32 +2,34 @@
   "bundler": "rollup",
   "shimport": "1.0.1",
   "assets": {
-    "main": "client.ff580754.js"
+    "main": "client.c85c7f32.js"
   },
   "css": {
-    "main": "main.2640584629.css",
+    "main": "main.848270211.css",
     "chunks": {
       "index.svelte": [
-        "index.2c9ddab0.css"
+        "index.0c06bf17.css",
+        "WordCard.20a7419a.css"
       ],
-      "favorites/index.svelte": [
-        "index.5011bd70.css",
-        "WordCard.d31101a5.css"
+      "favorites.svelte": [
+        "favorites.a39ac7a5.css",
+        "WordCard.20a7419a.css"
       ],
-      "search/index.svelte": [
-        "index.c2270291.css",
-        "WordCard.d31101a5.css"
+      "search.svelte": [
+        "search.6e469b9d.css",
+        "SearchIcon.1bff16b3.css",
+        "WordCard.20a7419a.css"
       ],
-      "about/index.svelte": [],
+      "about.svelte": [],
       "blog/index.svelte": [
-        "index.03abbf00.css"
+        "index.99a7dd57.css"
       ],
       "blog/[slug].svelte": [
-        "[slug].518ed8c4.css"
+        "[slug].f4d2d44a.css"
       ],
-      "abc/index.svelte": [
-        "index.39041948.css",
-        "WordCard.d31101a5.css"
+      "abc.svelte": [
+        "abc.dc83de4e.css",
+        "WordCard.20a7419a.css"
       ]
     }
   }

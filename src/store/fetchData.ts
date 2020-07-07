@@ -66,7 +66,7 @@ export const customInitDictionaryData = { // TODO: change this
 
 // * the actual function
 function processData(first: string, second: string): IFetchedDictionaryData {
-  function wordsAndDefiners(s: string) { // TODO: change this
+  function wordsAndDefiners(s: string) { // TODO: change this whole function for new data
     const str = s
       .split('=').join(' = ')
       .split('\n');

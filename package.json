@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "mien-language",
+  "description": "An Iu Mien dictionary tool",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",

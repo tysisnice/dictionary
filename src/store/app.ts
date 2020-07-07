@@ -2,7 +2,7 @@
 import { writable } from 'svelte/store';
 
 export class AppState {
-  page: string = 'page';
+  page: string = '/';
   offline: boolean = false;
   drawerOpened: boolean = false;
   snackbarOpened: boolean = false;
