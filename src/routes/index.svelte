@@ -1,7 +1,7 @@
 
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Iu Mien Language</title>
 </svelte:head>
 
 

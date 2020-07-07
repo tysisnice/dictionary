@@ -37,9 +37,9 @@
 	}
 
 	h1 {
-		margin-left: 6px;
+		margin-left: 10px;
 		line-height: calc(var(--nav-heigth) - 2px);
-		font-size: 26px;
+		font-size: 22px;
 	}
 
 	div {

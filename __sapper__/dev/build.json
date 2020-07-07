@@ -2,23 +2,23 @@
   "bundler": "rollup",
   "shimport": "1.0.1",
   "assets": {
-    "main": "client.9b84d427.js"
+    "main": "client.fc59a612.js"
   },
   "css": {
-    "main": "main.848270211.css",
+    "main": "main.3117937904.css",
     "chunks": {
       "index.svelte": [
-        "index.a6a12d7a.css",
-        "WordCard.da279940.css"
+        "index.7ebff230.css",
+        "WordCard.10d51910.css"
       ],
       "favorites.svelte": [
-        "favorites.ea663f7f.css",
-        "WordCard.da279940.css"
+        "favorites.ac191c58.css",
+        "WordCard.10d51910.css"
       ],
       "search.svelte": [
-        "search.2eede763.css",
+        "search.fa8712d6.css",
         "SearchIcon.1bff16b3.css",
-        "WordCard.da279940.css"
+        "WordCard.10d51910.css"
       ],
       "about.svelte": [],
       "blog/index.svelte": [
@@ -28,8 +28,8 @@
         "[slug].f4d2d44a.css"
       ],
       "abc.svelte": [
-        "abc.dc168241.css",
-        "WordCard.da279940.css"
+        "abc.c11e568f.css",
+        "WordCard.10d51910.css"
       ]
     }
   }

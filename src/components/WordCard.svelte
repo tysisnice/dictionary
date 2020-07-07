@@ -82,6 +82,7 @@
     transition: 0.25s;
     cursor: pointer;
     border: 1px solid var(--border-color);
+    background: white;
   }
   .container[open="true"] {
     width: 420px;

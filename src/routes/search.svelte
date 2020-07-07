@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Search</title>
+	<title>Mien Language - Search</title>
 </svelte:head>
 
 <script>
@@ -33,6 +33,8 @@
   <WordCard {open} {entry}/>
 {/each}
 
+<div class="filler"></div>
+
 
 
 <style>
@@ -45,6 +47,7 @@
     border: 2px solid #ddd;
     border-radius: 40px;
     overflow: hidden;
+    background: white;
   }
 
   .search-bar > input {
@@ -67,6 +70,11 @@
     font-style: italic;
     color: #666;
     padding-top: 30px;
+  }
+
+  .filler {
+    width: 90%;
+    height: 50px;
   }
 
   @media (max-width: 550px) {

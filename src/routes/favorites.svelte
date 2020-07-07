@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Mien Language - Favorites</title>
+</svelte:head>
+
 <script>
   import {onMount} from 'svelte';
   import { flip } from 'svelte/animate';
@@ -22,7 +26,7 @@
     <WordCard {entry} />
   </div>
 {/each}
-
+<div class="filler"></div>
 
 
 <style>
@@ -36,5 +40,9 @@
   }
   h2.top {
     margin-top: 5px;
+  }
+  .filler {
+    width: 90%;
+    height: 50px;
   }
 </style>

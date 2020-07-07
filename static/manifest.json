@@ -1,8 +1,8 @@
 {
 	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
+	"theme_color": "#1e90ff",
+	"name": "Mien Language",
+	"short_name": "Iu Mien",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [

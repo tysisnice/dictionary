@@ -1,3 +1,6 @@
+<svelte:head>
+	<title>Mien Language - Lookup</title>
+</svelte:head>
 
 <script>
   import {beforeUpdate} from 'svelte';
@@ -70,12 +73,13 @@
   </div>
 {/if}
 
-
+<div class="filler"></div>
 
 <style>
   * {
     --nav-height: 42px;
     --background: #fff;
+    --item-background: #fff;
   }
 
   .az-container {
@@ -86,7 +90,7 @@
     top: var(--nav-height);
     display: flex;
     height: 66px;
-    background: var(--background);
+    background: var(--item-background);
     border-bottom: 1px solid #eee;
   }
 
@@ -103,6 +107,7 @@
   .az-item[selected='true'] {
     color: dodgerblue;
     font-weight: bold;
+    background: var(--item-background);
   }
 
   .az-container-open {
@@ -138,5 +143,10 @@
     color: #555;
     margin-top: 30px;
     font-style: italic;
+  }
+
+  .filler {
+      width: 90%;
+      height: 50px;
   }
 </style>
