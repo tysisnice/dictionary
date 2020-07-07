@@ -16,9 +16,11 @@ export const savedById = writable(savedByIdInit);
 export const toggleFavorite = (_id: string = '') => {
   savedById.update(state => {
     if (state.includes(_id)) {
-      return state.filter(e => e !== _id)
+      state = state.filter(e => e !== _id)
     }
-    state.push(_id);
+    else {
+      state.push(_id);
+    }
     idb.set(IDB_SAVED_BY_ID, state);
     return state;
   });
@@ -48,7 +50,7 @@ export const wordOfTheDay = derived(
 );
 
 
-// updating the state from IndexedBD local storage
+// updating the state from IndexedDB local storage
 idb.get(IDB_SAVED_BY_ID).then((data: any) => {
   data && savedById.set(data as string[])
 });

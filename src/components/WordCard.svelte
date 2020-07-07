@@ -46,7 +46,7 @@
   }
 
   hr {
-    margin: 16px var(--inverse-padding) 16px var(--inverse-padding);
+    margin: 10px var(--inverse-padding) 10px var(--inverse-padding);
     border: 0;
   }
 
@@ -96,20 +96,20 @@
 
   .word {
     color: #000;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
   }
 
   .clarifyer {
     margin-top: 5px;
     margin-left: 10px;
-    font-size: 17px;
+    font-size: 16px;
     font-style: italic;
     color: #555;
   }
 
   .word.other {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: normal;
     color: #222;
     margin-left: 10px;
@@ -117,7 +117,7 @@
 
   .clarifyer.other {
     margin-left: 20px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
 

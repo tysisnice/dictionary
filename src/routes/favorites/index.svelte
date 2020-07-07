@@ -21,11 +21,11 @@
     margin: 30px 0px 15px 0px;
     max-width: 95vw;
     width: 360px;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
     color: #555;
   }
   h2.top {
-    margin-top: 20px;
+    margin-top: 5px;
   }
 </style>
