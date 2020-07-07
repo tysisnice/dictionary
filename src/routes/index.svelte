@@ -1,73 +1,85 @@
-
-
 <svelte:head>
-	<title>Iu Mien Language</title>
+	<title>Mien Language - Search</title>
 </svelte:head>
 
-
 <script>
+  import SearchIcon from '../components/icons/SearchIcon.svelte';
+  import WordCard from '../components/WordCard.svelte';
+  import {connectStore} from '../store/utils';
 
-  import {app} from '../store';
-  import WordCard from '../components/WordCard.svelte'
+  import { lookup } from '../store';
+  const { searchQuery, resultsBySearch, updateSearchQuery } = lookup;
+  const handleInput = ({ target }) => updateSearchQuery(target.value);
 
-
-
-  let frog = "frogger";
-  frog += 'g';
-  const entry = {
-     word: "asdfasdfsa",
-  clarifyer: "aaaaaaaaaaaaaaaaa",
-  language: "no lang",
-  otherWords: [],
-  lastEdited: "original",
-  _id: 'sad'
-
-  }
+  let _searchQuery = ''; 
+    connectStore(searchQuery, val => _searchQuery = val);
+  let _resultsBySearch = {getAllMatches() { return [] }}; 
+    connectStore(resultsBySearch, val => _resultsBySearch = val);
+    
 </script>
 
-<h1>Great success!</h1>
-<WordCard {entry} open={true}/>
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>{$app.page}HIGH FIVE {frog}!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
 
 
+<div class="search-bar">
+  <input type="text" on:input={handleInput} value={_searchQuery}/>
+  <div><SearchIcon/></div>
+</div>
+
+{#if _searchQuery === ''}
+  <p class="placeholder">Type in the bar above to find the word you're looking for!</p>
+{/if}
+
+{#each _resultsBySearch.getAllMatches() as {entry, open}, index (entry._id)}
+  <WordCard {open} {entry}/>
+{/each}
+
+<div class="filler"></div>
 
 
 
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 435px;
+    height: 44px;
+    margin: -5px 0 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 40px;
+    overflow: hidden;
+    background: white;
+  }
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
+  .search-bar > input {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    outline: none;
+    font-size: 24px;
+    padding-left: 18px;
+  }
 
-	figure {
-		margin: 0 0 1em 0;
-	}
+  .search-bar > div {
+    font-size: 40px;
+    padding: 10px;
+    margin: -14px 6px auto auto;
+    cursor: pointer;
+  }
 
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
+  p.placeholder {
+    font-style: italic;
+    color: #666;
+    padding-top: 30px;
+  }
 
-	p {
-		margin: 1em auto;
-	}
+  .filler {
+    width: 90%;
+    height: 50px;
+  }
 
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
+  @media (max-width: 550px) {
+    .search-bar {
+      width: calc(100vw - 40px);
+    }
+  }
 </style>

@@ -8,6 +8,8 @@
 	$: langButtonClass = $language.selected;
 	$: langIsPrimary = $language.selected === 'primary';
 	$: langText = langIsPrimary ? 'En' : 'Mien';
+
+	// TODO create settings icon in top right, with ability to toggle dark mode and edit entries
 </script>
 
 
