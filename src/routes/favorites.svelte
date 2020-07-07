@@ -19,7 +19,7 @@
 <h2>My Saved Words</h2>
 {#each _savedWords as entry, i (entry._id)}
   <div animate:flip={{duration: 220}}>
-    <WordCard {entry} open="true" />
+    <WordCard {entry} />
   </div>
 {/each}
 

@@ -36,7 +36,7 @@
     <div class="corner-button open" 
       saved={_savedById.includes(entry._id)}
       on:click={() => toggleFavorite(entry._id)}>&#9733;</div>
-    <p class="word">{entry.word}</p>
+    <p class="word" {open}>{entry.word}</p>
     <p class="clarifyer" {open}>{entry.clarifyer}</p>
     <div class="other-entries">
       {#each entry.otherWords as {_id, word, clarifyer}, index (_id)}
@@ -115,6 +115,9 @@
     color: #000;
     font-size: 22px;
     font-weight: bold;
+  }
+  .word[open="true"] {
+    font-size: 24px;
   }
 
   .clarifyer {

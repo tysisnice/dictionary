@@ -75,6 +75,7 @@
 <style>
   * {
     --nav-height: 42px;
+    --background: #fff;
   }
 
   .az-container {
@@ -85,7 +86,7 @@
     top: var(--nav-height);
     display: flex;
     height: 66px;
-    background: white;
+    background: var(--background);
     border-bottom: 1px solid #eee;
   }
 
@@ -97,6 +98,7 @@
     min-width: 56px;
     transition: 0.15s;
     cursor: pointer;
+    background: white;
   }
   .az-item[selected='true'] {
     color: dodgerblue;
@@ -109,6 +111,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background: var(--background);
   }
 
   .az-item.open {
