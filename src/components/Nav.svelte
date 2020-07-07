@@ -12,7 +12,7 @@
 
 
 <nav>
-	<h1>Joes house</h1>
+	<h1>Iu Mien Language</h1>
 	<div>
 		<Tabbar {segment}/>
 		<button class={langButtonClass} on:click={changeLanguage}>
