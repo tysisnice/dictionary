@@ -14,18 +14,41 @@ if (typeof window === 'undefined') {
 const PATH_TO_DATA = 'assets/dictionary-data/'; // todo change path to the data
 console.log(PATH_TO_DATA)
 let fetchDictionary = (callback: (args: any) => any ) => {
-  fetch2(PATH_TO_DATA + 'primary.txt')
+  let firstText = "";
+  let secondText = "";
+  let thirdText = "";
+  let fourthText = "";
+
+  fetch2(PATH_TO_DATA + 'primary-1.txt')
   .then((firstData: any) => {
-    return firstData.text().then( (firstText: any) => {
-      fetch2(PATH_TO_DATA + 'secondary.txt')
+    return firstData.text().then( (firstText: string) => {
+      
+      fetch2(PATH_TO_DATA + 'primary-2.txt')
       .then((secondData: any) => {
-        return secondData.text().then((secondText: any) => {
-          // todo change what to do with the data V
-          const processedData = processData(firstText, secondText);
-          callback(processedData)
+        return secondData.text().then((secondText: string) => {
+          
+          fetch2(PATH_TO_DATA + 'secondary-1.txt')
+          .then((thirdData: any) => {
+            return thirdData.text().then((thirdText: string) => {
+
+              fetch2(PATH_TO_DATA + 'secondary-2.txt')
+              .then((fourthData: any) => {
+                return fourthData.text().then((fourthText: string) => {
+
+                  // TODO change what to do with the data 
+                  const processedData = processData(firstText, secondText, thirdText, fourthText);
+                  callback(processedData);
+
+                })
+              })
+
+            })
+          });
+          
         });
       });
     });
+
   });
 };
 
@@ -35,6 +58,8 @@ if (typeof window === 'undefined') {
 }
 
 export default fetchDictionary;
+
+
 
 // TODO:  Change this data processing function and its custom interface
 // todo:  and extra data for each new project
@@ -64,8 +89,10 @@ export const customInitDictionaryData = { // TODO: change this
   },
 };
 
+
 // * the actual function
-function processData(first: string, second: string): IFetchedDictionaryData {
+function processData(first: string, second: string, third: string, fourth: string): IFetchedDictionaryData {
+  
   function wordsAndDefiners(s: string) { // TODO: change this whole function for new data
     const str = s
       .split('=').join(' = ')
@@ -116,11 +143,17 @@ function processData(first: string, second: string): IFetchedDictionaryData {
     return { words, definers };
   }
 
-  const firstLang: IWordAndDefiners = wordsAndDefiners(first);
-  const secondLang: IWordAndDefiners = wordsAndDefiners(second);
+  const primaryWordsDefiners1: IWordAndDefiners = wordsAndDefiners(first);
+  const primaryWordsDefiners2: IWordAndDefiners = wordsAndDefiners(second);
+  const secondaryWordsDefiners1: IWordAndDefiners = wordsAndDefiners(third);
+  const secondaryWordsDefiners2: IWordAndDefiners = wordsAndDefiners(fourth);
 
-  let primary: WordEntry[] = [];
-  let secondary: WordEntry[] = [];
+
+  console.log(primaryWordsDefiners1)
+  console.log(primaryWordsDefiners2)
+  console.log(secondaryWordsDefiners1)
+  console.log(secondaryWordsDefiners2)
+
 
   function addEntries(mainLang: any, otherLang: any, langId: string | number) {
     const list: WordEntry[] = [];
@@ -145,8 +178,11 @@ function processData(first: string, second: string): IFetchedDictionaryData {
       return 0;
     });
   }
-  secondary = addEntries(secondLang, firstLang, 1);
-  primary = addEntries(firstLang, secondLang, 2);
+  const primary: WordEntry[] = addEntries(primaryWordsDefiners1, primaryWordsDefiners2, 2);
+  const secondary: WordEntry[] = addEntries(secondaryWordsDefiners1, secondaryWordsDefiners2, 1);
+
+  console.log(primary)
+  console.log(secondary)
 
   return {
     entries: { primary, secondary },

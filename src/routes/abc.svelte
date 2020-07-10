@@ -52,7 +52,7 @@
     <WordCard {open} {entry} />
   {/each}
 
-    {#await new Promise(res => setTimeout(res, 10))}
+    {#await new Promise(res => window.setTimeout(res, 10))}
       <div></div>
       {:then value}
         {#each restOfEntries as {entry, open}, i (entry._id)}

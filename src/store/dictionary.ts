@@ -2,6 +2,10 @@
 import { writable } from 'svelte/store';
 import idb from './idb';
 
+
+// for use with local idb storage
+const IDB_LANGUAGE = 'DICTIONARY-language';
+
 export class WordEntry {
   word: string = "";
   clarifyer: string = "";
@@ -53,10 +57,6 @@ export const entries = writable(new IEntries());
 export const language = writable(new ILangOptions());
 export const alphabet = writable(new IAlphabet());
 export const stocked = writable(false);
-
-
-// for use with local idb storage
-const IDB_LANGUAGE = 'DICTIONARY-language';
 
 export function changeLanguage(lang: 'primary' | 'secondary' | null = null) {
   language.update(state => {
